@@ -67,3 +67,12 @@ yarn-debug.log*
 /storage/*
 !/storage/.keep
 /public/uploads
+
+# RubyMine
+out/
+*.iml
+vcs.xml
+dataSources.xml
+misc.xml
+modules.xml
+*.idea
