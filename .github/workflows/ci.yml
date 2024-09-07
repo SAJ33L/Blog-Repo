@@ -88,3 +88,25 @@ jobs:
           name: screenshots
           path: ${{ github.workspace }}/tmp/screenshots
           if-no-files-found: ignore
+
+
+  brakeman_scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.x  # Change this to your Ruby version
+
+      - name: Install dependencies
+        run: bundle install
+
+      - name: Make brakeman executable
+        run: chmod +x bin/brakeman  # Ensures the file has executable permissions
+
+      - name: Run Brakeman
+        run: bin/brakeman --no-pager
