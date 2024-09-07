@@ -1,0 +1,20 @@
+version: 2.1
+
+jobs:
+  test:
+    docker:
+      - image: circleci/ruby:3.3.4  # Update this to match your Ruby version
+    steps:
+      - checkout  # Pull down your GitHub repository
+
+      - run:
+          name: Install dependencies
+          command: bundle install
+
+      - run:
+          name: Make bin/brakeman executable
+          command: chmod +x bin/brakeman  # This fixes the permission issue
+
+      - run:
+          name: Run Brakeman
+          command: bin/brakeman --no-pager
