@@ -100,7 +100,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.x  # Change this to your Ruby version
+          ruby-version: 3.3.4  # Change this to your Ruby version
 
       - name: Install dependencies
         run: bundle install
